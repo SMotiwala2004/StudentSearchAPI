@@ -13,7 +13,7 @@ public class StudentService {
                 new Student(
                         1L,
                         "Mariam",
-                        "mariam.jamal@gmail.com",
+                        "mariam.jamal@gmail.net",
                         LocalDate.of(2000, Month.JANUARY, 5),
                         21
                 )
