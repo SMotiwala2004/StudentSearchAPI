@@ -53,6 +53,11 @@ public class StudentService {
             student.setName(name);
         }
         if(email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)) {
+            Optional<Student> studentOptional = studentRepository.findStudentByEmail(email);
+            if(studentOptional.isPresent()) {
+                throw new IllegalStateException("Email is already in use.");
+            }
+            student.setEmail(email);
         }
     }
 }
