@@ -49,10 +49,10 @@ public class StudentService {
     public void updateStudentName(Long studentId, String name, String email) {
         Student student = studentRepository.findById(studentId).orElseThrow(() -> new IllegalStateException("Student with id " + studentId + " does not exist"));
 
-        if(name != null && name.length() > 0 && !Objects.equals(student.getName(), name)) {
+        if(name != null && !name.isEmpty() && !Objects.equals(student.getName(), name)) {
             student.setName(name);
         }
-        if(email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)) {
+        if(email != null && !email.isEmpty() && !Objects.equals(student.getEmail(), email)) {
             Optional<Student> studentOptional = studentRepository.findStudentByEmail(email);
             if(studentOptional.isPresent()) {
                 throw new IllegalStateException("Email is already in use.");
