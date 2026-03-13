@@ -1,4 +1,4 @@
-package com.example.demo.student;
+package com.example.studentdbapi.student;
 
 import jakarta.persistence.*;
 
